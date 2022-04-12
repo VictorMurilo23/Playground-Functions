@@ -126,10 +126,19 @@ function decode(fraseCodificada) {
 }
 
 // Desafio 10
-function techList() {
-  // seu código aqui
+function techList(tecnologias, name) {
+  let organizado = []
+  let nome = name
+  if (tecnologias.length > 0) {
+    for(let index in tecnologias.sort()) {
+    organizado.push({tech:tecnologias[index], name: nome})
+  }
+    return organizado
+  } else {
+    return "Vazio!"
+  }
 }
-
+// console.log(techList(["React", "Jest", "HTML", "CSS", "JavaScript"], 'Lucas'))
 module.exports = {
   calcArea,
   catAndMouse,
