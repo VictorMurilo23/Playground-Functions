@@ -38,7 +38,7 @@ function highestCount(numbers) {
   let maiorNumero = null
   for(let index in numbers) {
     let numeroAtual = numbers[index]
-    if (numeroAtual >= maiorNumero) {
+    if (Math.abs(numeroAtual) >= maiorNumero) {
       maiorNumero = numeroAtual
     } else {
     }
@@ -50,7 +50,7 @@ function highestCount(numbers) {
   }
   return repetidos
 }
-// console.log(highestCount([-2, -2, -1]))
+
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
   let gato1 = Math.abs(cat1 - mouse)
@@ -64,7 +64,7 @@ function catAndMouse(mouse, cat1, cat2) {
     return 'cat1'
   }
 }
-console.log(catAndMouse(1, 0, 2))
+
 // Desafio 8
 function fizzBuzz(numbers) {
   let coisas = []
