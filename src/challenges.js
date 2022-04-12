@@ -83,11 +83,46 @@ function fizzBuzz(numbers) {
 }
 
 // Desafio 9
-function encode() {
-  // seu código aqui
+function encode(fraseNormal) {
+  let palavraCodificada = ''
+
+  for(let index = 0 ;index < fraseNormal.length; index += 1) {
+    if (fraseNormal[index] === 'a') {
+      palavraCodificada += '1'
+    } else if (fraseNormal[index] === 'e') {
+      palavraCodificada += '2'
+    } else if (fraseNormal[index] === 'i') {
+      palavraCodificada += '3'
+    } else if (fraseNormal[index] === 'o') {
+      palavraCodificada += '4'
+    } else if (fraseNormal[index] === 'u') {
+      palavraCodificada += '5'
+    } else {
+      palavraCodificada += fraseNormal[index]
+    }
+  }
+  return palavraCodificada
 }
-function decode() {
-  // seu código aqui
+
+function decode(fraseCodificada) {
+  let palavraNormal = ''
+
+  for(let index = 0 ;index < fraseCodificada.length; index += 1) {
+    if (fraseCodificada[index] === '1') {
+      palavraNormal += 'a'
+    } else if (fraseCodificada[index] === '2') {
+      palavraNormal += 'e'
+    } else if (fraseCodificada[index] === '3') {
+      palavraNormal += 'i'
+    } else if (fraseCodificada[index] === '4') {
+      palavraNormal += 'o'
+    } else if (fraseCodificada[index] === '5') {
+      palavraNormal+= 'u'
+    } else {
+      palavraNormal += fraseCodificada[index]
+    }
+  }
+  return palavraNormal
 }
 
 // Desafio 10
