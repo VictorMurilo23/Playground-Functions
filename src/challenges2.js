@@ -20,8 +20,18 @@ function triangleCheck(lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
+function hydrate(frase) {
+  //  <-- https://www.geeksforgeeks.org/extract-a-number-from-a-string-using-javascript/
+  let arrayDeBebidas = frase.match(/\d+/g);
+  let total = 0
+  for(let index = 0; index < arrayDeBebidas.length; index += 1) {
+    total += Number(arrayDeBebidas[index])
+  }
+  if (total == 1) {
+    return total + ' copo de água'
+  } else {
+    return total + ' copos de água'
+  }
 }
 
 module.exports = {
