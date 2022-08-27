@@ -1,0 +1,2 @@
+# Playground Function
+Esse é o segundo projeto que eu fiz enquanto estudava na Trybe. É um projeto focado em desenvolver a lógica. Antes de expor no meu próprio GitHub eu fiz algumas alterações nas funções. Caso fique curioso, dê uma olhada no histórico de commits.
