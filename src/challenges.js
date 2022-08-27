@@ -1,144 +1,135 @@
 // Desafio 1
 function compareTrue(valor1, valor2) {
-  if (valor1 === true && valor2 === true) {
-    return true
-  } else {
-    return false
-  }
+  return valor1 && valor2;
 }
 
 // Desafio 2
 function calcArea(base, height) {
-  let area = (base * height) / 2
-  return area
+  return (base * height) / 2;
 }
 
 // Desafio 3
 function splitSentence(words) {
-  const palavras = words.split(' ')
-  return palavras
+  return words.split(' ');
 }
 
 // Desafio 4
 function concatName(nomes) {
-  let primeiro = nomes[0]
-  let ultimo = nomes[nomes.length - 1]
-  return  ultimo + ', ' +  primeiro
+  let primeiroNome = nomes[0];
+  let ultimoNome = nomes[nomes.length - 1];
+  return `${ultimoNome}, ${primeiroNome}`;
 }
 
 // Desafio 5
 function footballPoints(wins, ties) {
-  let vitoriaPontos = wins * 3
-  return vitoriaPontos + ties
+  return wins * 3 + ties;
 }
 
 // Desafio 6
 function highestCount(numbers) {
-  let repetidos = 0
-  let maiorNumero = null
-  for(let index in numbers) {
-    let numeroAtual = numbers[index]
-    if (Math.abs(numeroAtual) >= maiorNumero) {
-      maiorNumero = numeroAtual
-    } else {
-    }
-  }
-  for (let index2 = 0; index2 < numbers.length; index2 += 1) {
-    if (maiorNumero == numbers[index2]) {
-      repetidos += 1
-    }
-  }
-  return repetidos
+  let maiorNumero = numbers.sort((a, b) => a - b)[numbers.length - 1];
+  return numbers.filter((element) => element === maiorNumero).length;
 }
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
-  let gato1 = Math.abs(cat1 - mouse)
-  let gato2 = Math.abs(cat2 - mouse)
+  let distanciaGato1 = Math.abs(cat1 - mouse);
+  let distanciaGato2 = Math.abs(cat2 - mouse);
 
-  if (gato1 == gato2 && gato2 == gato1) {
-    return 'os gatos trombam e o rato foge'
-  } else if (gato2 < gato1){
-    return 'cat2'
-  } else if (gato1 < gato2) {
-    return 'cat1'
+  if (distanciaGato1 === distanciaGato2 && distanciaGato2 === distanciaGato1) {
+    return 'os gatos trombam e o rato foge';
+  }
+  if (distanciaGato2 < distanciaGato1) {
+    return 'cat2';
+  }
+  if (distanciaGato1 < distanciaGato2) {
+    return 'cat1';
   }
 }
 
 // Desafio 8
-function fizzBuzz(numbers) {
-  let coisas = []
-  for(let index in numbers) {
-    if (numbers[index] % 3 === 0 && numbers[index] % 5 === 0) {
-      coisas.push("fizzBuzz")
-    } else if (numbers[index] % 3 === 0) {
-      coisas.push("fizz")
-    } else if (numbers[index] % 5 === 0) {
-      coisas.push("buzz")
-    } else {
-      coisas.push("bug!")
-    }
+function verificaNumero(number) {
+  if (number % 3 === 0 && number % 5 === 0) {
+    return 'fizzBuzz';
   }
-  return coisas
+  if (number % 3 === 0) {
+    return 'fizz';
+  }
+  if (number % 5 === 0) {
+    return 'buzz';
+  }
+  return 'bug!';
+}
+
+function fizzBuzz(numbers) {
+  let coisas = [];
+  for (let index = 0; index < numbers.length; index += 1) {
+    coisas.push(verificaNumero(numbers[index]));
+  }
+
+  return coisas;
 }
 
 // Desafio 9
 function encode(fraseNormal) {
-  let palavraCodificada = ''
+  let palavraCodificada = '';
 
-  for(let index = 0 ;index < fraseNormal.length; index += 1) {
-    if (fraseNormal[index] === 'a') {
-      palavraCodificada += '1'
-    } else if (fraseNormal[index] === 'e') {
-      palavraCodificada += '2'
-    } else if (fraseNormal[index] === 'i') {
-      palavraCodificada += '3'
-    } else if (fraseNormal[index] === 'o') {
-      palavraCodificada += '4'
-    } else if (fraseNormal[index] === 'u') {
-      palavraCodificada += '5'
+  const obj = {
+    a: '1',
+    e: '2',
+    i: '3',
+    o: '4',
+    u: '5',
+  };
+
+  for (let index = 0; index < fraseNormal.length; index += 1) {
+    if (Object.keys(obj).includes(fraseNormal[index])) {
+      palavraCodificada += obj[fraseNormal[index]];
     } else {
-      palavraCodificada += fraseNormal[index]
+      palavraCodificada += fraseNormal[index];
     }
   }
-  return palavraCodificada
+  return palavraCodificada;
 }
 
 function decode(fraseCodificada) {
-  let palavraNormal = ''
+  let palavraNormal = '';
 
-  for(let index = 0 ;index < fraseCodificada.length; index += 1) {
-    if (fraseCodificada[index] === '1') {
-      palavraNormal += 'a'
-    } else if (fraseCodificada[index] === '2') {
-      palavraNormal += 'e'
-    } else if (fraseCodificada[index] === '3') {
-      palavraNormal += 'i'
-    } else if (fraseCodificada[index] === '4') {
-      palavraNormal += 'o'
-    } else if (fraseCodificada[index] === '5') {
-      palavraNormal+= 'u'
+  const obj = {
+    1: 'a',
+    2: 'e',
+    3: 'i',
+    4: 'o',
+    5: 'u',
+  };
+
+  for (let index = 0; index < fraseCodificada.length; index += 1) {
+    if (Object.keys(obj).includes(fraseCodificada[index])) {
+      palavraNormal += obj[fraseCodificada[index]];
     } else {
-      palavraNormal += fraseCodificada[index]
+      palavraNormal += fraseCodificada[index];
     }
   }
-  return palavraNormal
+  return palavraNormal;
 }
 
 // Desafio 10
 function techList(tecnologias, name) {
-  let organizado = []
-  let nome = name
+  let organizado = [];
+  const tecnologiasOrdenado = tecnologias.sort();
   if (tecnologias.length > 0) {
-    for(let index in tecnologias.sort()) {
-    organizado.push({tech:tecnologias[index], name: nome})
+    for (let index = 0; index < tecnologiasOrdenado.length; index += 1) {
+      const obj = {
+        tech: tecnologiasOrdenado[index],
+        name,
+      };
+      organizado.push(obj);
+    }
+    return organizado;
   }
-    return organizado
-  } else {
-    return "Vazio!"
-  }
+  return 'Vazio!';
 }
-// console.log(techList(["React", "Jest", "HTML", "CSS", "JavaScript"], 'Lucas'))
+
 module.exports = {
   calcArea,
   catAndMouse,
